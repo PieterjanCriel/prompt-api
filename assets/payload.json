@@ -1,0 +1,16 @@
+{
+    "namespace": "pjcr",
+    "team": "data",
+    "name": "compliment",
+    "text": "give a very nice compliment to {receiver}",
+    "interpolation_values": [
+        "receiver"
+    ],
+    "description": "This is a prompt that gives a compliment",
+    "meta": {
+        "authors": [
+            "Pieterjan Criel"
+        ]
+    },
+    "version": "0.0.1"
+}

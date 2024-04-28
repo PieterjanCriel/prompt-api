@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: Prompts API
+  description: API for managing prompts with version control.
+  version: "1.0.0"
+paths:
+  /prompts/{namespace}/{prompt-name}:
+    get:
+      summary: Get a prompt by name
+      operationId: getPromptByName
+      parameters:
+        - name: namespace
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the prompt namespace.
+        - name: prompt-name
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The name of the prompt.
+        - name: version
+          in: query
+          required: false
+          schema:
+            type: string
+          description: The version of the prompt to retrieve. If not specified, returns the latest version.
+      responses:
+        '200':
+          description: Successfully retrieved prompt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prompt'
+        '404':
+          description: Prompt not found
+    post:
+      summary: Create or update a prompt
+      operationId: createOrUpdatePrompt
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewPrompt'
+      responses:
+        '201':
+          description: Successfully created or updated the prompt
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Prompt'
+components:
+  schemas:
+    Prompt:
+      type: object
+      required:
+        - name
+        - text
+        - description
+        - version
+      properties:
+        name:
+          type: string
+        text:
+          type: string
+        description:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        meta:
+          type: object
+          properties:
+            authors:
+              type: array
+              items:
+                type: string
+        version:
+          type: string
+    NewPrompt:
+      type: object
+      required:
+        - namespace
+        - team
+        - name
+        - text
+        - description
+      properties:
+        namespace:
+          type: string
+        team:
+          type: string
+        name:
+          type: string
+        text:
+          type: string
+        description:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+        meta:
+          type: object
+          properties:
+            authors:
+              type: array
+              items:
+                type: string

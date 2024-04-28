@@ -1,0 +1,46 @@
+{
+    "reference": {
+      "S": "pjcr#hello-world"
+    },
+    "versioning": {
+      "S": "LATEST"
+    },
+    "description": {
+      "S": "This is a prompt that says hello"
+    },
+    "interpolation_values": {
+      "SS": [
+        "receiver"
+      ]
+    },
+    "meta": {
+      "M": {
+        "authors": {
+          "SS": [
+            "Pieterjan Criel"
+          ]
+        }
+      }
+    },
+    "tags": {
+      "SS": [
+        "hello",
+        "greeting"
+      ]
+    },
+    "name": {
+      "S": "hello-world"
+    },
+    "namespace": {
+      "S": "pjcr"
+    },
+    "team": {
+      "S": "data"
+    },
+    "text": {
+      "S": "saw hello to {receiver}"
+    },
+    "version": {
+      "S": "0000.0000.0001"
+    }
+  }
